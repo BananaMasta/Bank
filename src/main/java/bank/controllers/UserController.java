@@ -11,6 +11,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -49,8 +50,9 @@ public class UserController {
 
     @GetMapping("/userbankaccount")
     public String userBankAccount(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("userName", user.getSecondname());
         model.addAttribute("cardlist", cardRepository.findCardsByUser(user));
-        return "userBankAccount";
+        return "userBankAccountNew";
     }
 
 }

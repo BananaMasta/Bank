@@ -32,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
         http.formLogin().defaultSuccessUrl("/userbankaccount", true);
     }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(NoOpPasswordEncoder.getInstance());

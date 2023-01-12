@@ -280,6 +280,14 @@
         color: #fff;
     }
 
+    .currency {
+        transform: translate(40px, 120px);
+        margin: -30px 0 15px;
+        font-size: 15px;
+        text-transform: uppercase;
+        color: black;
+    }
+
     input {
         color: #fff;
         background: transparent;
@@ -343,7 +351,7 @@
 
 </style>
 <body>
-<form th:action="@{/save}" method="post">
+<form th:action="@{/usercard}" method="post">
     <div class="backgound">
         <div class="left"></div>
         <div class="right">
@@ -377,7 +385,8 @@
                     <div class="card-number">
                         <input class="ab" type="text" name="cardnumber" th:value="${cardNum}"/>
                     </div>
-                    <div class="end"><span class="end-text">exp. end:</span><span class="end-date"></span><input type="text" name="carddate" th:value="${dateExp}"/></div>
+                    <div class="end"><span class="end-text">exp. end:</span><span class="end-date"></span><input
+                            type="text" name="carddate" th:value="${dateExp}"/></div>
                     <div class="card-holder">
                         <input type="text" name="carduser" th:value="${cardUser}"/>
                     </div>
@@ -388,7 +397,11 @@
                 </div>
                 <div class="back">
                     <div class="strip-black"></div>
-                        <div><input class="ccv" type="text" name="cardccv" th:value="${ccv}"/>></div>
+                    <div><input class="ccv" type="text" name="cardccv" th:value="${ccv}"/></div>
+                    <select class="currency" name="bankcurrency">
+                        <option th:each="bankCurrency : ${T(bank.models.Currency).values()}"
+                                th:value="${bankCurrency}" th:text="${bankCurrency}"></option>
+                    </select>
                 </div>
             </div>
         </div>

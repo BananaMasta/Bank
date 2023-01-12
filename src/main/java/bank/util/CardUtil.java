@@ -29,7 +29,7 @@ public class CardUtil {
     public static String cardNumberGener() {
         String cardNo = "";
         for (int i = 0; i < 4; i++) {
-            cardNo = cardNo + (int)((Math.random() * 8888)+1111) + " ";
+            cardNo = cardNo + (int) ((Math.random() * 8888) + 1111) + " ";
         }
         return cardNo;
     }

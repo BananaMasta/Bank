@@ -8,11 +8,11 @@ import java.util.Date;
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long cardId;
+    private long id;
     private String cardNumber;
     @ManyToOne
     private User user;
-    private Date dateExpired;
+    private String dateExpired;
     private String ccvCode;
     @Enumerated
     private Currency currency;
@@ -21,7 +21,7 @@ public class Card {
     public Card() {
     }
 
-    public Card(String cardNumber, User user, Date dateExpired, String ccvCode, Currency currency, BigDecimal userMoney) {
+    public Card(String cardNumber, User user, String dateExpired, String ccvCode, Currency currency, BigDecimal userMoney) {
         this.cardNumber = cardNumber;
         this.user = user;
         this.dateExpired = dateExpired;
@@ -34,12 +34,12 @@ public class Card {
         this.ccvCode = ccvCode;
     }
 
-    public long getCardId() {
-        return cardId;
+    public long getId() {
+        return id;
     }
 
-    public void setCardId(long cardId) {
-        this.cardId = cardId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getCardNumber() {
@@ -50,11 +50,11 @@ public class Card {
         this.cardNumber = cardNumber;
     }
 
-    public Date getDateExpired() {
+    public String getDateExpired() {
         return dateExpired;
     }
 
-    public void setDateExpired(Date dateExpired) {
+    public void setDateExpired(String dateExpired) {
         this.dateExpired = dateExpired;
     }
 

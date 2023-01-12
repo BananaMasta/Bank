@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>FROM CARD</label>
+<p th:text="${userCardNum}" disabled/>
+<p th:text="${mainUserFirstName}" disabled/>
+<p th:text="${mainUserSecondName}" disabled/>
+<p th:text="${mainUserLastName}" disabled/>
+<p th:text="${mainUserMoney}" disabled/>
+<p th:text="${mainUserCurrency}" disabled/>
+<label>TO</label>
+<p th:text="${cardNum}" disabled/>
+<p th:text="${cardUserFirstName}" disabled/>
+<p th:text="${cardUserSecondName}" disabled/>
+<p th:text="${cardUserLastName}" disabled/>
+<p th:text="${cardUserCurrency}" disabled/>
+
+<form th:action="@{/moneytransfer}" method="post">
+    <label>Money to user</label>
+    <input type="hidden" name="cardNumber" th:value="${userCardNum}"/>
+    <input type="hidden" name="cardNumbers" th:value="${cardNum}"/>
+    <input type="text" name="money"/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
